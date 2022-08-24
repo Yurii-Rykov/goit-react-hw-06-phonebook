@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types'
+import { useSelector, useDispatch } from 'react-redux';
+import { addContact } from 'store/store';
 import s from './Form.module.css';
 
-const Form = ({ onSubmitForm }) => {
+const Form = () => {
   const [formData, setFormData] = useState({ name: '', number: '' });
+  const contacts = useSelector(state => state.items);
+  const dispatch = useDispatch();
 
   const inputValue = event => {
     const name = event.target.name;
@@ -15,10 +18,16 @@ const Form = ({ onSubmitForm }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    onSubmitForm({
-      name: formData.name,
-      number: formData.number,
-    });
+    if (contacts.find(item => item.name === formData.name)) {
+      alert(`${formData.name} is already in contacts`);
+    } else {
+      dispatch(addContact({
+        name: formData.name,
+        number: formData.number,
+
+      }))
+    }
+
     reset();
   };
 
@@ -66,6 +75,3 @@ const Form = ({ onSubmitForm }) => {
 
 export default Form;
 
-Form.propTypes = {
-  onSubmitForm: PropTypes.func,
-}
