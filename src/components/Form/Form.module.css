@@ -1,0 +1,24 @@
+
+.mainForm {
+    display: flex;
+    flex-direction: column;
+}
+.mainForm_label {
+    display: flex;
+    flex-direction: column;
+}
+.mainForm_input {
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.mainForm_btn {
+    composes: mainForm_input;
+    background-color: black;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
+}

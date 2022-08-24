@@ -1,0 +1,12 @@
+.filter_label {
+    display: flex;
+    flex-direction: column;
+}
+.filter_input {
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

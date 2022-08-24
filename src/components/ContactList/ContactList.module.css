@@ -1,0 +1,16 @@
+.contacts {
+    padding: 0;
+}
+.contacts_item {
+    display: flex;
+    justify-content: space-evenly
+}
+.contacts_item:not(:last-child){
+    margin-bottom: 10px;
+}
+.btnDelete {
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
