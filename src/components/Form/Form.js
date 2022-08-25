@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'store/store';
+import { addContact } from '../../reduce/action';
 import s from './Form.module.css';
 
 const Form = () => {
@@ -21,11 +21,7 @@ const Form = () => {
     if (contacts.find(item => item.name === formData.name)) {
       alert(`${formData.name} is already in contacts`);
     } else {
-      dispatch(addContact({
-        name: formData.name,
-        number: formData.number,
-
-      }))
+      dispatch(addContact(formData))
     }
 
     reset();

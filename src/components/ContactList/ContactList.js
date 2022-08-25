@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { delet } from 'store/store'
+import { delet } from '../../reduce/action'
 import s from './ContactList.module.css'
 
 const ContactList = () => {
@@ -9,10 +9,10 @@ const ContactList = () => {
   const filter = useSelector(state => state.filter)
 
   const visibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
+    const normalizedFilter = filter?.toLowerCase();
     return (
       contacts?.filter(contact =>
-        contact.name.toLowerCase().includes(normalizedFilter)
+        contact?.name?.toLowerCase()?.includes(normalizedFilter)
       ) ?? []
     );
   };
